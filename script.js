@@ -43,7 +43,9 @@ function createWeatherCard(data) {
 
     // Date
     const date = document.createElement('p');
-    date.textContent = new Date(data.dt * 1000).toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+    const dateObj = new Date(data.dt * 1000); // Convert timestamp to Date object
+    const options = { weekday: 'long', month: 'long', day: 'numeric' };
+    date.textContent = dateObj.toLocaleDateString('en-US', options);
     card.appendChild(date);
 
     // Weather icon
